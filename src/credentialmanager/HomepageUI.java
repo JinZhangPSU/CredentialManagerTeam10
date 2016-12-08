@@ -21,7 +21,7 @@ public class HomepageUI extends JFrame{
     public static void createPanel(JPanel homePanel, User u) {
         
         User user=u;
-        homePanel.setLayout(new GridLayout(2,2));
+        homePanel.setLayout(new GridLayout(3,1));
         
         JButton storeButton = new JButton();
         JButton generateButton = new JButton();
@@ -29,7 +29,6 @@ public class HomepageUI extends JFrame{
         JButton logoutButton = new JButton();
         
         storeButton.setText("Store Credential");
-        generateButton.setText("Generate Password");
         viewButton.setText("My Credential(s)");
         logoutButton.setText("Logout");
         
@@ -40,7 +39,6 @@ public class HomepageUI extends JFrame{
         });
         
         homePanel.add(storeButton);
-        homePanel.add(generateButton);
         homePanel.add(viewButton);
         homePanel.add(logoutButton);
       
