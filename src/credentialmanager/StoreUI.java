@@ -20,12 +20,12 @@ import java.io.IOException;
 
 public class StoreUI extends JFrame {
     
-    private static JButton storeButton;
-    private static JButton backButton;
-    private static JTextField userText;
-    private static JPasswordField passwordText;
-    private static JLabel usernameL;
-    private static JLabel passwordL;
+    private JButton storeButton;
+    private JButton backButton;
+    private JTextField userText;
+    private JTextField passwordText;
+    private JLabel usernameL;
+    private JLabel passwordL;
     private File file;
     private FileWriter fw;
     private BufferedWriter bw;
@@ -71,7 +71,7 @@ public class StoreUI extends JFrame {
                     fw = new java.io.FileWriter(file.getAbsoluteFile(),true);
                     bw = new BufferedWriter(fw);
                     
-                    String s = labelEntry.getText();
+                    String s = username+" "+password;
                     bw.write(s+"\n");
                     
                     bw.close();
@@ -84,7 +84,7 @@ public class StoreUI extends JFrame {
                     
                 }
                     
-                }});
+                });
         backButton = new JButton("Back");
 	backButton.setBounds(170, 130, 80, 25);
 	panel.add(backButton);

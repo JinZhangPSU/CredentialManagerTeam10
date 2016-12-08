@@ -12,7 +12,7 @@ import javax.swing.*;
  * @author Jin
  */
 public class StoreCtrl {
-    public static void openStore(){
+    public void openStore(){
             JFrame frame = new JFrame("Store Credential");
             frame.setSize(300, 200);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

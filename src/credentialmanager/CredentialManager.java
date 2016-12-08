@@ -27,7 +27,7 @@ public class CredentialManager {
         
         
         
-        public static void openHomePage(){
+        public void openHomePage(){
             JFrame frame = new JFrame("HomePage");
             frame.setSize(350, 350);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -11,7 +11,7 @@ import javax.swing.*;
  */
 public class LoginCtrl {
     
-    public static void  OpenHomePage(String name, String password)
+    public void  OpenHomePage(String name, String password)
     {
         if(name.compareTo("zhangjin") == 0 && password.compareTo("123")==0){
         CredentialManager.openHomePage();
@@ -19,12 +19,12 @@ public class LoginCtrl {
         
     }
     
-    public static void OpenSignUpPage(){
+    public void OpenSignUpPage(){
         RegistrationCtrl.openRegistration();
         
     }
     
-    public static void openLogin(){
+    public void openLogin(){
             JFrame frame = new JFrame("Credential Manager (Login)");
             frame.setSize(300, 200);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

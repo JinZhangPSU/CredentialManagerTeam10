@@ -15,7 +15,7 @@ public class HomepageCtrl {
     public boolean authenticate = false;
     HomepageUI HomepageUI;
     
-    public static void openStorePage(){
+    public void openStorePage(){
         StoreCtrl.openStore();
     }
     

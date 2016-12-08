@@ -18,7 +18,7 @@ public class HomepageUI extends JFrame{
    
 
 
-    public static void createPanel(JPanel homePanel) {
+    public void createPanel(JPanel homePanel) {
         
         
         homePanel.setLayout(new GridLayout(2,2));
