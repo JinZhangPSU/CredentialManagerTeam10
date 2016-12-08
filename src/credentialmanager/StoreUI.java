@@ -13,6 +13,10 @@ package credentialmanager;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class StoreUI extends JFrame {
     
@@ -22,9 +26,12 @@ public class StoreUI extends JFrame {
     private static JPasswordField passwordText;
     private static JLabel usernameL;
     private static JLabel passwordL;
+    private File file;
+    private FileWriter fw;
+    private BufferedWriter bw;
+    private User user;
     
-    
-    public static void placeComponents(JPanel panel){
+    public void placeComponents(JPanel panel){
         panel.setLayout(null);
         usernameL = new JLabel("Credential");
         usernameL.setBounds(20, 30, 80, 25);
@@ -38,14 +45,46 @@ public class StoreUI extends JFrame {
 	passwordL.setBounds(20, 70, 80, 25);
 	panel.add(passwordL);
 
-        passwordText = new JPasswordField(20);
+        passwordText = new JTextField(20);
         passwordText.setBounds(100, 70, 160, 25);
 	panel.add(passwordText);
 
         storeButton = new JButton("Store");;
 	storeButton.setBounds(60, 130, 80, 25);
 	panel.add(storeButton);
-
+         
+        storeButton.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e)
+                {
+                    String username =  userText.getText();
+                    String password = passwordText.getText();
+                    
+                      try{
+                    String fileName = "src/"+user.getUserName()+".txt";
+                    file=new File(fileName);
+                    
+                    if(!file.exists())
+                        
+                            file.createNewFile();
+                    
+                    
+                    fw = new java.io.FileWriter(file.getAbsoluteFile(),true);
+                    bw = new BufferedWriter(fw);
+                    
+                    String s = labelEntry.getText();
+                    bw.write(s+"\n");
+                    
+                    bw.close();
+                    
+                    
+                }
+                catch(IOException a){
+                    a.printStackTrace();
+                }
+                    
+                }
+                    
+                }});
         backButton = new JButton("Back");
 	backButton.setBounds(170, 130, 80, 25);
 	panel.add(backButton);
