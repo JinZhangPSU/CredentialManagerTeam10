@@ -27,13 +27,14 @@ public class CredentialManager {
         
         
         
-        public void openHomePage(){
+        public static void openHomePage(User u){
+            User user=u;
             JFrame frame = new JFrame("HomePage");
             frame.setSize(350, 350);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JPanel panel = new JPanel();
             frame.add(panel);
-            HomepageUI.createPanel(panel);
+            HomepageUI.createPanel(panel,u);
             frame.setVisible(true);
             frame.setResizable(false);
         }

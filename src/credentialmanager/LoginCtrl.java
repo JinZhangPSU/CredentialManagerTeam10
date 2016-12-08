@@ -11,20 +11,20 @@ import javax.swing.*;
  */
 public class LoginCtrl {
     
-    public void  OpenHomePage(String name, String password)
-    {
+    public static void  OpenHomePage(String name, String password)
+    {   User u = new User("a","b",name,password);
         if(name.compareTo("zhangjin") == 0 && password.compareTo("123")==0){
-        CredentialManager.openHomePage();
+        CredentialManager.openHomePage(u);
     }
         
     }
     
-    public void OpenSignUpPage(){
+    public static void OpenSignUpPage(){
         RegistrationCtrl.openRegistration();
         
     }
     
-    public void openLogin(){
+    public static void openLogin(){
             JFrame frame = new JFrame("Credential Manager (Login)");
             frame.setSize(300, 200);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -16,15 +16,15 @@ import java.awt.event.ActionListener;
 
 public class LoginUI extends JFrame {
     
-    private  JButton loginButton;
-    private  JButton signupButton;
-    private  JTextField userText;
-    private  JPasswordField passwordText;
-    private  JLabel usernameL;
-    private  JLabel passwordL;
+    private static JButton loginButton;
+    private static JButton signupButton;
+    private static JTextField userText;
+    private static JPasswordField passwordText;
+    private static JLabel usernameL;
+    private static JLabel passwordL;
     
     
-    public void placeComponents(JPanel panel){
+    public static void placeComponents(JPanel panel){
         panel.setLayout(null);
         usernameL = new JLabel("Username");
         usernameL.setBounds(20, 30, 80, 25);

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  * @author Jin
  */
 public class RegistrationCtrl {
-    public  void openRegistration(){
+    public static void openRegistration(){
             JFrame frame = new JFrame("Credential Manager (Register)");
             frame.setSize(350, 260);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

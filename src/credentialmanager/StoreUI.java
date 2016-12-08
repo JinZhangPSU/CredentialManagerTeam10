@@ -31,7 +31,8 @@ public class StoreUI extends JFrame {
     private BufferedWriter bw;
     private User user;
     
-    public void placeComponents(JPanel panel){
+    public void placeComponents(JPanel panel, User u){
+        user=u;
         panel.setLayout(null);
         usernameL = new JLabel("Credential");
         usernameL.setBounds(20, 30, 80, 25);

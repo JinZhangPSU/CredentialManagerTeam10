@@ -18,9 +18,9 @@ public class HomepageUI extends JFrame{
    
 
 
-    public void createPanel(JPanel homePanel) {
+    public static void createPanel(JPanel homePanel, User u) {
         
-        
+        User user=u;
         homePanel.setLayout(new GridLayout(2,2));
         
         JButton storeButton = new JButton();
@@ -35,7 +35,7 @@ public class HomepageUI extends JFrame{
         
         storeButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                HomepageCtrl.openStorePage();
+                HomepageCtrl.openStorePage(user);
             }
         });
         
