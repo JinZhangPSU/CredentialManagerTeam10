@@ -38,6 +38,14 @@ public class HomepageUI extends JFrame{
             }
         });
         
+        viewButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                HomepageCtrl.openViewPage(user);
+            }
+        });
+        
+       
+        
         logoutButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 System.exit(0);
