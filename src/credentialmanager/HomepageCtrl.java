@@ -20,6 +20,11 @@ public class HomepageCtrl {
         StoreCtrl.openStore(user);
     }
     
+    public static void openViewPage(User u){
+        User user=u;
+        ViewCtl.openView(u);
+    }
+    
     
     
  
