@@ -38,6 +38,12 @@ public class HomepageUI extends JFrame{
             }
         });
         
+        logoutButton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        
         homePanel.add(storeButton);
         homePanel.add(viewButton);
         homePanel.add(logoutButton);
