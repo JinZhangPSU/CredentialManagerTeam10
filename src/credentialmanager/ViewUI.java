@@ -9,6 +9,7 @@ package credentialmanager;
  *
  * @author Jin
  */
+import static credentialmanager.StoreUI.frame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +32,21 @@ public class ViewUI extends JFrame {
     private FileWriter fw;
     private BufferedWriter bw;
     private User user;
+    
+    static JFrame frame = new JFrame("View Credentials");
+    
+    public static void openView(User u){
+            User user=u;
+            
+            frame.setSize(300, 200);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JPanel panel = new JPanel();
+            frame.add(panel);
+            ViewUI vUI = new ViewUI();
+            vUI.placeComponents(panel,user);
+            frame.setVisible(true);
+            frame.setResizable(false);       
+        }
 
     public void placeComponents(JPanel panel, User u) {
         user = u;
@@ -99,6 +115,12 @@ public class ViewUI extends JFrame {
         backButton = new JButton("Back");
         backButton.setBounds(170, 130, 80, 25);
         panel.add(backButton);
+        
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
 
     }
 

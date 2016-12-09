@@ -22,7 +22,7 @@ public class HomepageCtrl {
     
     public static void openViewPage(User u){
         User user=u;
-        ViewCtl.openView(u);
+        ViewUI.openView(u);
     }
     
     
