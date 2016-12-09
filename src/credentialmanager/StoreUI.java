@@ -32,6 +32,21 @@ public class StoreUI extends JFrame {
     private BufferedWriter bw;
     private User user;
 
+    static JFrame frame = new JFrame("Store Credential");
+    
+    public static void openStore(User u){
+            User user=u;
+            
+            frame.setSize(300, 200);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JPanel panel = new JPanel();
+            frame.add(panel);
+            StoreUI sUI = new StoreUI();
+            sUI.placeComponents(panel,user);
+            frame.setVisible(true);
+            frame.setResizable(false);       
+        }
+    
     public void placeComponents(JPanel panel, User u) {
         user = u;
         panel.setLayout(null);
@@ -99,6 +114,12 @@ public class StoreUI extends JFrame {
         backButton = new JButton("Back");
         backButton.setBounds(170, 130, 80, 25);
         panel.add(backButton);
+        
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
 
     }
 

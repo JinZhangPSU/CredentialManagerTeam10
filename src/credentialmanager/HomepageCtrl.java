@@ -17,7 +17,7 @@ public class HomepageCtrl {
     
     public static void openStorePage(User u){
         User user=u;
-        StoreCtrl.openStore(user);
+        StoreUI.openStore(user);
     }
     
     public static void openViewPage(User u){
