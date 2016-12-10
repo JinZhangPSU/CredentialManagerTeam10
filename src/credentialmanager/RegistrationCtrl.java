@@ -13,17 +13,16 @@ import javax.swing.JPanel;
  * @author Jin
  */
 public class RegistrationCtrl {
-    public static void openRegistration(){
-            JFrame frame = new JFrame("Credential Manager (Register)");
-            frame.setSize(350, 260);
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            JPanel panel = new JPanel();
-            frame.add(panel);
-            RegistrationUI.placeComponents(panel);
-            frame.setVisible(true);
-            frame.setResizable(false);
-            
-            
-            
-        }
+
+    public static void openRegistration() {
+        JFrame frame = new JFrame("Credential Manager (Register)");
+        frame.setSize(350, 180);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panel = new JPanel();
+        frame.add(panel);
+        RegistrationUI.placeComponents(panel);
+        frame.setVisible(true);
+        frame.setResizable(false);
+    }
+
 }
