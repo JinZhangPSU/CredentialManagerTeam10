@@ -5,6 +5,7 @@
  */
 package credentialmanager;
 
+import java.io.IOException;
 import javax.swing.*;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.*;
  * @author Jin
  */
 public class ViewCtl {
-    public static void openView(User u){
+    public static void openView(User u) throws IOException{
             User user=u;
             JFrame frame = new JFrame("View Credentials");
             frame.setSize(300, 200);
