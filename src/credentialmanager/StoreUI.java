@@ -33,6 +33,7 @@ public class StoreUI extends JFrame {
     private JLabel credentialL;
     private JLabel usernameL;
     private JLabel passwordL;
+    private JLabel error;
     private File file;
     private FileWriter fw;
     private BufferedWriter bw;
@@ -56,6 +57,10 @@ public class StoreUI extends JFrame {
     public void placeComponents(JPanel panel, User u) {
         user = u;
         panel.setLayout(null);
+        
+        error = new JLabel("here");
+        error.setBounds(10, 10, 10, 10);
+        panel.add(error);
         credentialL = new JLabel("Credential");
         credentialL.setBounds(20, 30, 80, 25);
         panel.add(credentialL);
@@ -86,10 +91,14 @@ public class StoreUI extends JFrame {
 
         storeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                try {
+                
                     String credName = userText.getText();
                     String username = userText1.getText();
                     String password = passwordText.getText();
+                    
+                if(!credName.equals("")&&!username.equals("")&&!password.equals("")){
+                try {
+                    
                     String fileName = "src/tempFile.txt";
                     try {
                         
@@ -122,7 +131,11 @@ public class StoreUI extends JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(StoreUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                }
+                
+                else{
+                    error.setText("Error: all fields must be entered.");
+                }
             }
 
         });
@@ -149,6 +162,7 @@ public class StoreUI extends JFrame {
             }
         });
 
+        
     }
 
     public String generatePassword() {
