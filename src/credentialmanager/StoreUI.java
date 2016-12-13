@@ -87,7 +87,8 @@ public class StoreUI extends JFrame {
         storeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String username = userText.getText();
+                    String credName = userText.getText();
+                    String username = userText1.getText();
                     String password = passwordText.getText();
                     String fileName = "src/tempFile.txt";
                     try {
@@ -101,7 +102,7 @@ public class StoreUI extends JFrame {
                         fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
                         bw = new BufferedWriter(fw);
                         
-                        String s = username + " " + password;
+                        String s = credName+": "+username + " " + password;
                         bw.write(s + "\n");
                         
                         bw.close();
