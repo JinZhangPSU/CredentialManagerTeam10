@@ -29,7 +29,7 @@ public class HomepageUI extends JFrame{
         JButton logoutButton = new JButton();
         
         storeButton.setText("Store Credential");
-        viewButton.setText("My Credential(s)");
+        viewButton.setText("View My Credential(s)");
         logoutButton.setText("Logout");
         
         storeButton.addActionListener(new ActionListener(){
