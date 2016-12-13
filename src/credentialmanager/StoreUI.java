@@ -28,7 +28,9 @@ public class StoreUI extends JFrame {
     private JButton generateButton;
     private JButton backButton;
     private JTextField userText;
+    private JTextField userText1;
     private JTextField passwordText;
+    private JLabel credentialL;
     private JLabel usernameL;
     private JLabel passwordL;
     private File file;
@@ -41,7 +43,7 @@ public class StoreUI extends JFrame {
     public static void openStore(User u){
             User user=u;
             
-            frame.setSize(300, 200);
+            frame.setSize(300, 235);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JPanel panel = new JPanel();
             frame.add(panel);
@@ -54,24 +56,32 @@ public class StoreUI extends JFrame {
     public void placeComponents(JPanel panel, User u) {
         user = u;
         panel.setLayout(null);
-        usernameL = new JLabel("Credential");
-        usernameL.setBounds(20, 30, 80, 25);
-        panel.add(usernameL);
+        credentialL = new JLabel("Credential");
+        credentialL.setBounds(20, 30, 80, 25);
+        panel.add(credentialL);
 
         userText = new JTextField(20);
         userText.setBounds(100, 30, 160, 25);
         panel.add(userText);
+        
+        usernameL = new JLabel("Username");
+        usernameL.setBounds(20, 60, 80, 25);
+        panel.add(usernameL);
+        
+        userText1 = new JTextField(20);
+        userText1.setBounds(100, 60, 160, 25);
+        panel.add(userText1);
 
         passwordL = new JLabel("Password");
-        passwordL.setBounds(20, 70, 80, 25);
+        passwordL.setBounds(20, 90, 80, 25);
         panel.add(passwordL);
 
         passwordText = new JTextField(20);
-        passwordText.setBounds(100, 70, 160, 25);
+        passwordText.setBounds(100, 90, 160, 25);
         panel.add(passwordText);
 
         storeButton = new JButton("Store");;
-        storeButton.setBounds(60, 130, 80, 25);
+        storeButton.setBounds(60, 155, 80, 25);
         panel.add(storeButton);
 
         storeButton.addActionListener(new ActionListener() {
@@ -117,7 +127,7 @@ public class StoreUI extends JFrame {
         });
 
         generateButton = new JButton("Generate Password");;
-        generateButton.setBounds(90, 100, 180, 25);
+        generateButton.setBounds(90, 120, 180, 25);
         panel.add(generateButton);
 
         generateButton.addActionListener(new ActionListener() {
@@ -129,7 +139,7 @@ public class StoreUI extends JFrame {
         });
 
         backButton = new JButton("Back");
-        backButton.setBounds(170, 130, 80, 25);
+        backButton.setBounds(170, 155, 80, 25);
         panel.add(backButton);
         
         backButton.addActionListener(new ActionListener() {
