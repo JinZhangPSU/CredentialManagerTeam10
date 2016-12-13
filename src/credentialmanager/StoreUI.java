@@ -16,7 +16,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class StoreUI extends JFrame {
 
@@ -72,27 +76,40 @@ public class StoreUI extends JFrame {
 
         storeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String username = userText.getText();
-                String password = passwordText.getText();
-
                 try {
-                    String fileName = "src/" + user.getUserName() + ".txt";
-                    file = new File(fileName);
-
-                    if (!file.exists()) {
-                        file.createNewFile();
+                    String username = userText.getText();
+                    String password = passwordText.getText();
+                    String fileName = "src/tempFile.txt";
+                    try {
+                        
+                        file = new File(fileName);
+                        
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+                        
+                        fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
+                        bw = new BufferedWriter(fw);
+                        
+                        String s = username + " " + password;
+                        bw.write(s + "\n");
+                        
+                        bw.close();
+                        
+                    } catch (IOException a) {
+                        a.printStackTrace();
                     }
-
-                    fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
-                    bw = new BufferedWriter(fw);
-
-                    String s = username + " " + password;
-                    bw.write(s + "\n");
-
-                    bw.close();
-
-                } catch (IOException a) {
-                    a.printStackTrace();
+                    
+                    AESCrypt aes = new AESCrypt(true, "pass");
+                    
+                    aes.encrypt(1,fileName,"src/"+user.getUserName()+".txt");
+                    
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(StoreUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedEncodingException ex) {
+                    Logger.getLogger(StoreUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(StoreUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }

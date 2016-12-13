@@ -5,6 +5,9 @@
  */
 package credentialmanager;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.GeneralSecurityException;
 import javax.swing.*;
 
 /**
@@ -15,9 +18,12 @@ public class LoginCtrl {
 
     static JFrame frame = new JFrame("Credential Manager (Login)");
 
-    public static void OpenHomePage(String name, String password) {
+    public static void OpenHomePage(String name, String password) throws GeneralSecurityException, UnsupportedEncodingException, IOException {
         User u = new User("a", "b", name, password);
         if (name.compareTo("zhangjin") == 0 && password.compareTo("123") == 0) {
+            
+            AESCrypt aes = new AESCrypt(true, "pass");
+            aes.decrypt("src/zhangjin.txt","src/tempFile.txt");
             CredentialManager.openHomePage(u);
             frame.dispose();
         }

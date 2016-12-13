@@ -48,7 +48,7 @@ public class ViewUI extends JFrame {
     public void placeComponents(JPanel panel, User u) throws IOException{
         user = u;
         panel.setLayout(null);
-        filePath = "src/"+user.getUserName()+".txt";
+        filePath = "src/tempFile.txt";
         
         fr = new FileReader(filePath);
         br = new BufferedReader(fr);
@@ -66,7 +66,7 @@ public class ViewUI extends JFrame {
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
   
         panel.add(scroll);
-        
+        panel.repaint();
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
