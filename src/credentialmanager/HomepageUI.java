@@ -13,7 +13,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.GeneralSecurityException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,6 +50,8 @@ public class HomepageUI extends JFrame{
                     HomepageCtrl.openViewPage(user);
                 } catch (IOException ex) {
                     Logger.getLogger(HomepageUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(HomepageUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -55,6 +60,14 @@ public class HomepageUI extends JFrame{
         
         logoutButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                PrintWriter pw;
+                try {
+                    pw = new PrintWriter("src/tempFile.txt");
+                    pw.close();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(HomepageUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
                 System.exit(0);
             }
         });

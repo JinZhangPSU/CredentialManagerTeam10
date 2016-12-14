@@ -19,6 +19,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ViewUI extends JFrame {
 
@@ -56,8 +58,7 @@ public class ViewUI extends JFrame {
         AESCrypt aes = new AESCrypt(true,"pass");
         aes.decrypt("src/"+u.getUserName()+".txt", filePath);
         
-        fr = new FileReader(filePath);
-        br = new BufferedReader(fr);
+       
         backButton = new JButton("Back");
         backButton.setBounds(170, 130, 80, 25);
         panel.add(backButton);
@@ -72,10 +73,17 @@ public class ViewUI extends JFrame {
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
   
         panel.add(scroll);
-        panel.repaint();
+       
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                frame.validate();
+                try {
+                    viewArea.setText(getCredentials());
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 frame.dispose();
+                
             }
         });
 
@@ -83,12 +91,17 @@ public class ViewUI extends JFrame {
     
     public String getCredentials() throws IOException{
         String creds = "";
-        
+        fr = new FileReader(filePath);
+        br = new BufferedReader(fr);
         String line;
         while((line=br.readLine())!=null){
             creds = creds+"\n"+line;
-            System.out.println(line);
+            
         }
+        
+        System.out.println(creds);
+        viewArea.setText(creds);
+        br.close();
         
         
         
