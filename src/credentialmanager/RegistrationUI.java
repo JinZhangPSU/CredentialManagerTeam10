@@ -88,9 +88,14 @@ public class RegistrationUI extends JFrame{
                     try {
                         
                        File file = new File(fileName);
-                        
+                       File file2 = new File("src/"+username+".txt");
                         if (!file.exists()) {
                             file.createNewFile();
+                        }
+                        if(!file2.exists()){
+                            file2.createNewFile();
+                            AESCrypt aes = new AESCrypt(true,"pass");
+                            aes.encrypt(1,"src/blank.txt", "src/"+username+".txt");
                         }
                         
                        FileWriter fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
@@ -103,6 +108,8 @@ public class RegistrationUI extends JFrame{
                     }
                      catch (IOException a) {
                         a.printStackTrace();
+                    } catch (GeneralSecurityException ex) {
+                        Logger.getLogger(RegistrationUI.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     JOptionPane.showMessageDialog(null,"You are now registered");
                     }

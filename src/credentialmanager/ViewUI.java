@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.Random;
 
 public class ViewUI extends JFrame {
@@ -32,7 +33,7 @@ public class ViewUI extends JFrame {
     
     static JFrame frame = new JFrame("View Credentials");
     
-    public static void openView(User u) throws IOException{
+    public static void openView(User u) throws IOException, GeneralSecurityException{
             User user=u;
             
             frame.setSize(300, 200);
@@ -45,10 +46,15 @@ public class ViewUI extends JFrame {
             frame.setResizable(false);       
         }
 
-    public void placeComponents(JPanel panel, User u) throws IOException{
+    public void placeComponents(JPanel panel, User u) throws IOException, GeneralSecurityException{
         user = u;
         panel.setLayout(null);
+        
+       
         filePath = "src/tempFile.txt";
+        
+        AESCrypt aes = new AESCrypt(true,"pass");
+        aes.decrypt("src/"+u.getUserName()+".txt", filePath);
         
         fr = new FileReader(filePath);
         br = new BufferedReader(fr);
@@ -81,6 +87,7 @@ public class ViewUI extends JFrame {
         String line;
         while((line=br.readLine())!=null){
             creds = creds+"\n"+line;
+            System.out.println(line);
         }
         
         

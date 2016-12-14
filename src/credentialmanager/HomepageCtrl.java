@@ -6,6 +6,7 @@
 package credentialmanager;
 
 import java.io.IOException;
+import java.security.GeneralSecurityException;
 
 
 
@@ -22,7 +23,7 @@ public class HomepageCtrl {
         StoreUI.openStore(user);
     }
     
-    public static void openViewPage(User u) throws IOException{
+    public static void openViewPage(User u) throws IOException, GeneralSecurityException{
         User user=u;
         ViewUI.openView(u);
     }

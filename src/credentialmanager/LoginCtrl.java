@@ -25,6 +25,7 @@ public class LoginCtrl {
     public static void OpenHomePage(String name, String password) throws GeneralSecurityException, UnsupportedEncodingException, IOException {
          Scanner fileScan = new Scanner(new File("src/usersDB.txt"));
          User u = new User("a", "b", name, password);
+         String uFilePath="src/"+u.getUserName()+".txt";
          if(!name.equals("")&&!password.equals(""))
          {
          while (fileScan.hasNextLine()){
@@ -35,7 +36,7 @@ public class LoginCtrl {
                     String userpassword = fileScan.nextLine();
                     if(userpassword.equals(password)){
                     AESCrypt aes = new AESCrypt(true, "pass");
-                    aes.decrypt("src/zhangjin.txt","src/tempFile.txt");
+                    aes.decrypt(uFilePath,"src/tempFile.txt");
                     CredentialManager.openHomePage(u);
                     frame.dispose();
                     break;
