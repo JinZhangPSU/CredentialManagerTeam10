@@ -58,9 +58,6 @@ public class StoreUI extends JFrame {
         user = u;
         panel.setLayout(null);
         
-        error = new JLabel("here");
-        error.setBounds(10, 10, 10, 10);
-        panel.add(error);
         credentialL = new JLabel("Credential");
         credentialL.setBounds(20, 30, 80, 25);
         panel.add(credentialL);
