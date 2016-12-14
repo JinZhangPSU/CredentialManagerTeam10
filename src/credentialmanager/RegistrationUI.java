@@ -96,7 +96,7 @@ public class RegistrationUI extends JFrame{
                        FileWriter fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
                         BufferedWriter bw = new BufferedWriter(fw);
                         
-                        String s = username + " " + pass;
+                        String s = username + "\n" + pass;
                         bw.write(s + "\n");
                         
                         bw.close();
@@ -104,10 +104,14 @@ public class RegistrationUI extends JFrame{
                      catch (IOException a) {
                         a.printStackTrace();
                     }
+                    JOptionPane.showMessageDialog(null,"You are now registered");
                     }
                     
                     else{
-                        error.setText("Error: both fields must be entered.");
+                   JOptionPane.showMessageDialog(null,
+                   "Both field must be entered!",
+                   "Error Message",
+                   JOptionPane.ERROR_MESSAGE);
                     }
                     
                     
