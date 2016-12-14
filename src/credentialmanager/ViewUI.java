@@ -67,7 +67,6 @@ public class ViewUI extends JFrame {
        
         viewArea.setEditable(false);
         viewArea.setText(getCredentials());
-        
         scroll = new JScrollPane(viewArea);
         scroll.setBounds(30,30,200,100);
         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
@@ -95,7 +94,7 @@ public class ViewUI extends JFrame {
         }
         
         System.out.println(creds);
-        viewArea.setText(creds);
+       
         br.close();
         
         
