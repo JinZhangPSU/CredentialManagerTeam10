@@ -131,10 +131,15 @@ public class StoreUI extends JFrame {
                 } catch (IOException ex) {
                     Logger.getLogger(StoreUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                   JOptionPane.showMessageDialog(null,
+                   "Store Success!");
                 }
                 
                 else{
-                    error.setText("Error: all fields must be entered.");
+                   JOptionPane.showMessageDialog(null,
+                   "Both field must be entered!",
+                   "Error Message",
+                   JOptionPane.ERROR_MESSAGE);
                 }
             }
 
