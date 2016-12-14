@@ -77,11 +77,6 @@ public class ViewUI extends JFrame {
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.validate();
-                try {
-                    viewArea.setText(getCredentials());
-                } catch (IOException ex) {
-                    Logger.getLogger(ViewUI.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 frame.dispose();
                 
             }
