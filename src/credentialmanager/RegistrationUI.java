@@ -95,10 +95,14 @@ public class RegistrationUI extends JFrame{
                     try {
                         
                        File file = new File(fileName);
-                        
+                       File file2 = new File("src/"+username+".txt");
                         if (!file.exists()) {
                             file.createNewFile();
                         }
+                        if(!file2.exists())  {
+                            file2.createNewFile();
+                        }
+                        
                         
                        FileWriter fw = new java.io.FileWriter(file.getAbsoluteFile(), true);
                         BufferedWriter bw = new BufferedWriter(fw);
