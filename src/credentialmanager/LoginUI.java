@@ -12,6 +12,10 @@ package credentialmanager;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginUI extends JFrame {
 
@@ -45,10 +49,19 @@ public class LoginUI extends JFrame {
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = userText.getText();
-                String password = passwordText.getText();
-                LoginCtrl.OpenHomePage(username, password);
+                String password = passwordText.getText();          
+                try {
+                    LoginCtrl.OpenHomePage(username, password);
+                } catch (GeneralSecurityException ex) {
+                    Logger.getLogger(LoginUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
             }
-        }
+            }
+            
+                
         );
         panel.add(loginButton);
 
@@ -60,7 +73,8 @@ public class LoginUI extends JFrame {
             }
         });
         panel.add(signupButton);
-
     }
+    
+
 
 }
